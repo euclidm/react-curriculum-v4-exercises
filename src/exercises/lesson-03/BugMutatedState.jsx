@@ -13,8 +13,7 @@ export default function BugMutatedState() {
   let [count, setCount] = useState(0);
 
   function handleAdd() {
-    count++;
-    setCount(count);
+    setCount((previous) => (previous + 1));
   }
 
   return (
@@ -26,4 +25,7 @@ export default function BugMutatedState() {
 }
 
 // Explanation:
-// (Write your explanation here)
+/*
+  Replacing count++ and setCount(count) with `setCount((previous) => (previous + 1))`
+  helps avoid stale state and helps us increment & render our current count in an easy + convenient manner.
+*/

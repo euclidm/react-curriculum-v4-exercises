@@ -38,7 +38,7 @@ export default function SnackForm({
   }
 
   function validateRating(){
-    if (rating.trim() === ""){
+    if (isNaN(rating)){
       return false;
     }
     else{
@@ -67,7 +67,7 @@ export default function SnackForm({
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (validateName() === false || validateRating() ===false){
+    if (validateName() === false || validateRating() === false){
       setTouched({name:true, rating:true});
 
       return;
